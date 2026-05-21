@@ -111,8 +111,9 @@ int __init_tp(void *p)
 	 *   of TIDs are 0.
 	 * - pthread mutex owner tracking reserves 0x3fffffff as the
 	 *   "not recoverable" sentinel.
+         * - revert to using good old method
 	 */
-	td->tid = 0x20000000;
+	td->tid = 0x3ffffffe;
 
 	if (&__stack_high) {
 		td->stack = &__stack_high;
